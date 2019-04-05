@@ -109,10 +109,14 @@ function animate() {
   render();
 }
 
+/**
+ * RENDER
+ */
+
 function render() {
   delta = clock.getDelta();
   earthMesh.rotation.y += rotationSpeed * delta;
-  updateSatellites();
+  // updateSatellites();
 
   renderer.clear();
   renderer.render(scene, camera);
@@ -200,11 +204,12 @@ function addOrbits() {
 }
 
 function addStars() {
-  const starGeo = new THREE.SphereGeometry(300, 40, 20);
+  const starGeo = new THREE.SphereGeometry(1200, 40, 20);
   const starMat = new THREE.MeshBasicMaterial();
   const starsUrl = './aseets/star-fields.png';
+  const starsUrl2 = './aseets/space/space-radio-bursts.jpg';
 
-  starMat.map = loader.load(starsUrl, function ( texture ) {
+  starMat.map = loader.load(starsUrl2, function ( texture ) {
     // in this example we create the material when the texture is loaded
     console.log(texture);
   }, undefined, function(err) {
